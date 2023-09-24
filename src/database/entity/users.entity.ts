@@ -21,12 +21,13 @@ export class Users {
   @Column()
   user_address:string;
 
-  @ManyToOne(() => UserType, (userType) => userType.users)
-  userType: UserType;
+  // @ManyToOne(() => UserType, (userType) => userType.users)
+  // userType: UserType;
 
-  @OneToMany(() => Vehicle, (vehicle) => vehicle.owner_user_id)
+  @OneToMany(() => Vehicle, car => car.users)
+  @JoinColumn()
   vehicles: Vehicle[];
 
-  @OneToOne(() => Rental, (rental) => rental.customer_user_id)
-  rentedCar: Rental;
+  // @OneToOne(() => Rental, (rental) => rental.customer_user_id)
+  // rentedCar: Rental;
 }

@@ -17,13 +17,14 @@ import { UsersModule } from './users/users.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
+
       host: "localhost", // Replace with your database host
       port: 3306, // Replace with your database port
       username: "root", // Replace with your database username
       password: "Welcome123", // Replace with your database password
       database: "all_cars", // Replace with your database name
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: false
+      synchronize: true
     }),
     TypeOrmModule.forFeature([Rental,Users,Vehicle,ValidVehicleType,ValidVehicleUseType,UserType]), // Include your entity classes here
     PostsModule,

@@ -8,12 +8,12 @@ export class Rental {
   @PrimaryGeneratedColumn()
   rental_id: number;
 
-  @OneToOne(() => Users, (user) => user.rentedCar)
-  @JoinColumn()
-  customer_user_id: Users;
+  // @OneToOne(() => Users, (user) => user.rentedCar)
+  // @JoinColumn()
+  // customer_user_id: Users;
 
-  @ManyToOne(() => Vehicle, (vehicle) => vehicle.rental_history)
-  car_id: string;
+  // @ManyToOne(() => Vehicle, (vehicle) => vehicle.rental_history)
+  // car_id: string;
 
   @Column()
   rental_start_date: Date;

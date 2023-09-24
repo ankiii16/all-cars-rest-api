@@ -11,7 +11,7 @@ export class ValidVehicleType {
   @Column()
   vehicle_type: string;
 
-  @OneToMany(() => Vehicle, (vehicle) => vehicle.vehicle_type)
-  vehicles: Vehicle[];
+  // @OneToMany(() => Vehicle, (vehicle) => vehicle.vehicle_type)
+  // vehicles: Vehicle[];
 
 }
