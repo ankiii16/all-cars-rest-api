@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
 import { VehicleService } from 'src/vehicle/services/vehicle/vehicle.service';
 
 @Controller('listings')
@@ -12,6 +12,10 @@ export class VehicleController {
 
     @Post()
     addVehicle(){
+    }
+
+    @Get('byVehicleType/:vehicleType')
+    getVehicleByVehicleType(@Param('vehicleType') userType: number){
 
     }
 }

@@ -2,34 +2,36 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, Decimal128, JoinTable, OneToMany, JoinColumn } from 'typeorm';
 import { Rental } from './rental.entity';
 import { Users } from './users.entity';
-import { UserType } from './valid_user_types.entity';
+import { UserType } from './user_types.entity';
 import { ValidVehicleType } from './valid_vehicle_types.entity';
+import { ValidVehicleUseType } from './Valid_vehicle_use_types.entity';
 
 @Entity()
 export class Vehicle {
   @PrimaryGeneratedColumn()
-  vehicle_id: number;
+  id: number;
 
   @ManyToOne(() => Users, (user) => user.vehicles)
   @JoinColumn()
-  users: Users;
+  user: Users;
 
   @Column()
-  vehicle_name: string;
+  vehicleName: string;
 
   @Column()
-  vehicle_description: string;
+  vehicleDescription: string;
 
   @Column('decimal', { precision: 10, scale: 2 })
-  vehicle_price_weekly: number;
+  vehiclePriceWeekly: number;
 
-  // @ManyToOne(() => ValidVehicleType, (vehicle_type) => vehicle_type.vehicles)
-  // vehicle_type: string;
+  @ManyToOne(() => ValidVehicleType, (vehicleType) => vehicleType.vehicles)
+  @JoinColumn()
+  vehicleType: ValidVehicleType;
 
-  // @ManyToOne(() => ValidVehicleType, (vehicle_use_type) => vehicle_use_type.vehicles)
-  // vehicle_use_type: string;
+  @ManyToOne(() => ValidVehicleUseType, (vehicleUseType) => vehicleUseType.vehicles)
+  vehicleUseType: ValidVehicleUseType;
 
-  // @OneToMany(() => Rental, (rental) => rental.car_id)
-  // rental_history: Rental[];
+  @OneToMany(() => Rental, (rental) => rental.id)
+  rentalHistory: Rental[];
 
 }

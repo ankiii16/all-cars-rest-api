@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PostsModule } from './posts/posts.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { ConnectionOptions } from 'mysql2';
@@ -10,8 +9,9 @@ import { Rental } from './database/entity/rental.entity';
 import { Users } from './database/entity/users.entity';
 import { ValidVehicleType } from './database/entity/valid_vehicle_types.entity';
 import { ValidVehicleUseType } from './database/entity/Valid_vehicle_use_types.entity';
-import { UserType } from './database/entity/valid_user_types.entity';
+import { UserType } from './database/entity/user_types.entity';
 import { UsersModule } from './users/users.module';
+import { VehicleTypesModule } from './vehicle_types/vehicle_types.module';
 
 @Module({
   imports: [
@@ -27,9 +27,9 @@ import { UsersModule } from './users/users.module';
       synchronize: true
     }),
     TypeOrmModule.forFeature([Rental,Users,Vehicle,ValidVehicleType,ValidVehicleUseType,UserType]), // Include your entity classes here
-    PostsModule,
     VehicleModule,
-    UsersModule
+    UsersModule,
+    VehicleTypesModule
   ],
   controllers: [AppController],
   providers: [AppService],

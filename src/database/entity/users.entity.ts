@@ -1,33 +1,34 @@
 
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import { Rental } from './rental.entity';
-import { UserType } from './valid_user_types.entity';
+import { UserType } from './user_types.entity';
 import { Vehicle } from './vehicle.entity';
 
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
-  user_id: number;
+  id: number;
 
   @Column()
-  user_name: string;
+  userName: string;
 
   @Column()
-  user_email: string;
+  userEmail: string;
 
   @Column()
-  user_phone:number;
+  userPhone:number;
 
   @Column()
-  user_address:string;
+  userAddress:string;
 
-  // @ManyToOne(() => UserType, (userType) => userType.users)
-  // userType: UserType;
+  @ManyToOne(() => UserType, (userType) => userType.users)
+  @JoinColumn()
+  userType: UserType;
 
-  @OneToMany(() => Vehicle, car => car.users)
+  @OneToMany(() => Vehicle, car => car.user)
   @JoinColumn()
   vehicles: Vehicle[];
 
-  // @OneToOne(() => Rental, (rental) => rental.customer_user_id)
-  // rentedCar: Rental;
+  @OneToOne(() => Rental, (rental) => rental.id)
+  rentedCar: Rental;
 }
