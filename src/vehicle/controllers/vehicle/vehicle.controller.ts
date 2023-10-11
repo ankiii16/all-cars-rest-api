@@ -13,13 +13,11 @@ export class VehicleController {
 
     @Post()
     addVehicle(@Body() addvehicle:AddVehicleDto ){
-        console.log("listing data:", addvehicle)
         return this.vehicleService.addListing(addvehicle)
     }
 
     @Get('byVehicleType/:vehicleType')
     getVehicleByVehicleType(@Param('vehicleType') vehicleType: number){
-        console.log("getVehicleByVehicleType")
         return this.vehicleService.getListingsByVehicleType(vehicleType)
     }
 }

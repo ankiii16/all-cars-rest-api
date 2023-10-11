@@ -12,6 +12,7 @@ import { ValidVehicleUseType } from './database/entity/Valid_vehicle_use_types.e
 import { UserType } from './database/entity/user_types.entity';
 import { UsersModule } from './users/users.module';
 import { VehicleTypesModule } from './vehicle_types/vehicle_types.module';
+import { UserTypeModule } from './user_type/user_type.module';
 
 @Module({
   imports: [
@@ -29,7 +30,8 @@ import { VehicleTypesModule } from './vehicle_types/vehicle_types.module';
     TypeOrmModule.forFeature([Rental,Users,Vehicle,ValidVehicleType,ValidVehicleUseType,UserType]), // Include your entity classes here
     VehicleModule,
     UsersModule,
-    VehicleTypesModule
+    VehicleTypesModule,
+    UserTypeModule
   ],
   controllers: [AppController],
   providers: [AppService],
