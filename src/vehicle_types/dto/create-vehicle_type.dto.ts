@@ -1,1 +1,3 @@
-export class CreateVehicleTypeDto {}
+export class CreateVehicleTypeDto {
+    vehicleType:string
+}

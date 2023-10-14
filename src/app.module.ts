@@ -13,12 +13,12 @@ import { UserType } from './database/entity/user_types.entity';
 import { UsersModule } from './users/users.module';
 import { VehicleTypesModule } from './vehicle_types/vehicle_types.module';
 import { UserTypeModule } from './user_type/user_type.module';
+import { VehicleUseTypeModule } from './vehicle_use_type/vehicle_use_type.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-
       host: "localhost", // Replace with your database host
       port: 3306, // Replace with your database port
       username: "root", // Replace with your database username
@@ -31,7 +31,8 @@ import { UserTypeModule } from './user_type/user_type.module';
     VehicleModule,
     UsersModule,
     VehicleTypesModule,
-    UserTypeModule
+    UserTypeModule,
+    VehicleUseTypeModule
   ],
   controllers: [AppController],
   providers: [AppService],

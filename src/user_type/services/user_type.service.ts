@@ -25,11 +25,13 @@ export class UserTypeService {
             .getMany();
   }
 
-  update(id: number, updateUserTypeDto: UpdateUserTypeDto) {
-    return `This action updates a #${id} userType`;
+  async update(id: number, updateUserTypeDto: UpdateUserTypeDto) {
+    var validUserType = await this.userTypeRepository.findOneBy({id})
+    validUserType.userType = updateUserTypeDto.userType;
+    return this.userTypeRepository.save(validUserType);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} userType`;
+    return this.userTypeRepository.delete(id);
   }
 }
