@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserTypeDto } from '../dto/create-user_type.dto';
 import { UpdateUserTypeDto } from '../dto/update-user_type.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { UserType } from 'src/database/entity/user_types.entity';
 
 @Injectable()
@@ -10,8 +10,10 @@ export class UserTypeService {
   constructor(@InjectRepository(UserType) private userTypeRepository:Repository<UserType>){
   }
 
-  create(createUserTypeDto: CreateUserTypeDto) {
-    return "test"
+  async create(createUserTypeDto: CreateUserTypeDto) {
+    const userTypePartial = await this.mapAddUserTypeDtoToPartial(createUserTypeDto);
+    var vehicleUseType = this.userTypeRepository.create(userTypePartial)
+    return this.userTypeRepository.save(vehicleUseType);  
   }
 
   findAll() {
@@ -33,5 +35,11 @@ export class UserTypeService {
 
   remove(id: number) {
     return this.userTypeRepository.delete(id);
+  }
+
+  async mapAddUserTypeDtoToPartial(addUserTypeDto: CreateUserTypeDto): Promise<DeepPartial<UserType>> {
+    return {
+      userType: addUserTypeDto.userType
+    };
   }
 }

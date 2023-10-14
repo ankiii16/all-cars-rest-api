@@ -30,11 +30,10 @@ export class UsersService {
         return this.usersRepository.save(user);
     }
 
-    async updateUser(userData:UpdateUserDto){
-        var id = userData.id
+    async updateUser(id:number, userData:UpdateUserDto){
         const user = await this.usersRepository.findOneBy({id})
-        id = userData.userTypeId
-        const userType = await this.userTypeRepository.findOneBy({id})
+        var userid = userData.userTypeId
+        const userType = await this.userTypeRepository.findOneBy({id:userid})
         user.userName = userData.userName;
         user.userEmail = userData.userEmail;
         user.userPhone = userData.userPhone;

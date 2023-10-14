@@ -1,1 +1,3 @@
-export class CreateUserTypeDto {}
+export class CreateUserTypeDto {
+    userType: string
+}
