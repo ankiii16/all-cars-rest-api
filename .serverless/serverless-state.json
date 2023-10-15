@@ -174,7 +174,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/all-cars-api/dev/1696769947942-2023-10-08T12:59:07.942Z/all-cars-api.zip"
+                "S3Key": "serverless/all-cars-api/dev/1697333310110-2023-10-15T01:28:30.110Z/all-cars-api.zip"
               },
               "Handler": "dist/lambda.handler",
               "Runtime": "nodejs14.x",
@@ -192,14 +192,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionYvRicRcYnT2n8dQsFcFsLle3KRZDXW8mzZJC8KTVcH8": {
+          "ApiLambdaVersionJoYUqSZe8VGGE330GGv1sTiAjUbXA42ilCsEz7RJDQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "vOqKECSZ6qpiJyzX8+Y2/S4w7hm6O/mekefRazVEqTY="
+              "CodeSha256": "rVb7IuHdG9lpgu/HU6InF2O/LXFpfmNHp+CpAKW4iWI="
             }
           },
           "ApiGatewayRestApi": {
@@ -275,7 +275,7 @@
               "ApiLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1696769935495": {
+          "ApiGatewayDeployment1697333304219": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -337,7 +337,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionYvRicRcYnT2n8dQsFcFsLle3KRZDXW8mzZJC8KTVcH8"
+              "Ref": "ApiLambdaVersionJoYUqSZe8VGGE330GGv1sTiAjUbXA42ilCsEz7RJDQ"
             },
             "Export": {
               "Name": "sls-all-cars-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -477,7 +477,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionYvRicRcYnT2n8dQsFcFsLle3KRZDXW8mzZJC8KTVcH8"
+        "versionLogicalId": "ApiLambdaVersionJoYUqSZe8VGGE330GGv1sTiAjUbXA42ilCsEz7RJDQ"
       }
     },
     "configValidationMode": "warn",
@@ -499,7 +499,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/all-cars-api/dev/1696769947942-2023-10-08T12:59:07.942Z",
+    "artifactDirectoryName": "serverless/all-cars-api/dev/1697333310110-2023-10-15T01:28:30.110Z",
     "artifact": "all-cars-api.zip"
   }
 }
