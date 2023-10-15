@@ -18,7 +18,9 @@ export class VehicleService {
         ){}
     
     getListings():Promise<Vehicle[]>{
-        return this.vehicleRepository.find();
+        const vehicles:Promise<Vehicle[]>=this.vehicleRepository.find()
+        console.log("listings", vehicles)
+        return vehicles
     }
 
     async addListing(addVehicleDto:AddVehicleDto){
