@@ -32,9 +32,7 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME, // Replace with your database name
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
-      // ssl:,
       autoLoadEntities:true,
-      // ssl:true
     }),
     TypeOrmModule.forFeature([Rental,Users,Vehicle,ValidVehicleType,ValidVehicleUseType,UserType]), // Include your entity classes here
     VehicleModule,
